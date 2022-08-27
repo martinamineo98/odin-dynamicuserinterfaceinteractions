@@ -1,0 +1,117 @@
+
+/* -------------------------------------------------------- VARIABLES */
+
+:root {
+	--sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+	--serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+	--monospace: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+	--main-font-family: var(--sans-serif);
+	--body-background-color: #FFFFFF;
+	--body-text-color: #000000;
+	--carousel-background-color: hsl(0deg, 0%, 95%);
+	--control-background-color: var(--body-background-color);
+	--control-button-background-color: hsl(0deg, 0%, 95%);
+	--control-button-active-background-color: hsl(0deg, 0%, 90%);
+}
+
+/* ------------------------------------------------------------ RESET */
+
+*,
+*::before,
+*::after {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-size: 10px;
+}
+
+input,
+button,
+select {
+  font: inherit;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ---------------------------------------------------------- GENERAL */
+
+body {
+	background-color: var(--body-background-color);
+	color: var(--body-text-color);
+	font: calc(1.6rem + .5vmin) var(--main-font-family);
+}
+
+/* -------------------------------------------------------- CONTAINER */
+
+.container {
+	display: grid;
+	height: 100vh;
+	place-content: center;
+	place-items: center;
+}
+
+/* ----------------------------------------------------- IMAGE SLIDER */
+
+.carousel {
+	background-color: var(--carousel-background-color);
+	display: grid;
+	grid-template-rows: 500px 100px;
+	height: 600px;
+	overflow: hidden;
+	position: relative;
+	width: 500px;
+}
+
+.picture-frame {
+	--calc: calc((500px - 300px) / 2); /* (width of the carousel - width of the picture frame) / 2 */
+	display: grid;
+	gap: var(--calc);
+	grid-template-columns: repeat(5, 1fr);
+	left: var(--calc);
+	position: absolute;
+	top: var(--calc);
+}
+
+.picture-frame-img {
+	border: 15px #FFFFFF solid;
+	height: 300px;
+	min-width: 300px;
+	width: 300px;
+}
+
+.control {
+	background-color: var(--control-background-color);
+	display: grid;
+	gap: 10px;
+	grid-auto-flow: column;
+	grid-row: 2 / 2;
+	height: 100px;
+	place-content: center;
+	place-items: center;
+	width: 500px;
+}
+
+.control button {
+	aspect-ratio: 1;
+	background-color: var(--control-button-background-color);
+	border-radius: 50%;
+	width: 15px;
+}
+
+.control button.isActive {
+	background-color: var(--control-button-active-background-color)
+}
