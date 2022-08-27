@@ -1,0 +1,153 @@
+
+/* -------------------------------------------------------- VARIABLES */
+
+:root {
+	--sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+	--serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+	--monospace: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+	--main-font-family: var(--sans-serif);
+	--body-background-color: #FFFFFF;
+	--body-text-color: #000000;
+	--mobile-background-color: hsl(0deg, 0%, 95%);
+	--menu-button-background-color: hsl(50deg, 100%, 50%);
+	--menu-button-text-color: #FFFFFF;
+	--menu-li-background-color: var(--menu-button-background-color);
+	--menu-anchor-text-color: #FFFFFF;
+}
+
+/* ------------------------------------------------------------ RESET */
+
+*,
+*::before,
+*::after {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-size: 10px;
+}
+
+input,
+button,
+select {
+  font: inherit;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ---------------------------------------------------------- GENERAL */
+
+body {
+	background-color: var(--body-background-color);
+	color: var(--body-text-color);
+	font: calc(1.6rem + .5vmin) var(--main-font-family);
+}
+
+/* -------------------------------------------------------- CONTAINER */
+
+.container {
+	display: grid;
+	height: 100vh;
+	place-content: center;
+	place-items: center;
+}
+
+.mobile {
+	aspect-ratio: 9/16;
+	background-color: var(--mobile-background-color);
+	height: 75vh;
+}
+
+/* ------------------------------------------------------------- MENU */
+
+.menu {
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+
+.menu button {
+	aspect-ratio: 1;
+	background-color: var(--menu-button-background-color);
+	border-radius: 50%;
+	bottom: 15px;
+	color: var(--menu-button-text-color);
+	display: flex;
+	font-size: 2em;
+	font-weight: 900;
+	place-content: center;
+	place-items: center;
+	position: absolute;
+	right: 15px;
+	width: 50px;
+}
+
+.menu button:hover {
+	cursor: pointer;
+}
+
+.menu button.isAnimation {
+	animation: button-animation .75s linear;
+}
+
+.menu ul {
+	bottom: calc(50px + 30px);
+	display: grid;
+	gap: 15px;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(3, 1fr);
+	height: 0;
+	list-style: none;
+	overflow: hidden;
+	position: absolute;
+	right: 15px;
+	transition: height .75s ease-in-out;
+	width: 25%;
+}
+
+.menu ul.isVisible {
+	height: 150px;
+}
+
+.menu li {
+	background-color: var(--menu-li-background-color);
+	border-radius: 15px;
+	font-size: .85em;
+	font-weight: bold;
+	padding: 1ch;
+	text-align: center;
+}
+
+.menu a {
+	color: var(--menu-anchor-text-color);
+	text-decoration: none;
+}
+
+.menu a:hover {
+	cursor: pointer;
+}
+
+/* ------------------------------------------------------- ANIMATIONS */
+
+@keyframes button-animation {
+	0%, 100% {
+		transform: scale(1.25);
+	}
+	
+	50% {
+		transform: scale(0);
+	}
+}
